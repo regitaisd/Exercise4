@@ -1,13 +1,15 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 struct weather{
-	int month;
 	int rainfall;
 	float highTemp;
 	float lowTemp;
 	float avgTemp;
 };
+
+enum month{JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER};
 
 int main(){
 	weather arr[12];
@@ -15,9 +17,12 @@ int main(){
 	float highestTemp;
 	float lowestTemp;
 	float totalAvgTemp;
+	string month[12] = {"January", "February", "March", "April",
+	                    "May", "June","July","August",
+						"September", "October", "November", "December"};
 	
-	for(int i = 1; i <= 12; i++){
-		cout << "Month: " << i << endl;
+	for(int i = JANUARY; i <= DECEMBER; i++){
+		cout << "Month: " << month[i] << endl;
 		cout << "Rainfall: ";
 		cin >> arr[i].rainfall;
 		cout << "Highest Temperature: ";
@@ -43,14 +48,14 @@ int main(){
 	}
 	
 	highestTemp = -101;
-	for(int i = 1; i <= 12; i++){
+	for(int i = JANUARY; i <= DECEMBER; i++){
 		if(arr[i].highTemp > highestTemp){
 			highestTemp = arr[i].highTemp;
 		}
 	}
 	
 	lowestTemp = 141;
-	for(int i = 1; i <= 12; i++){
+	for(int i = JANUARY; i <= DECEMBER; i++){
 		if(arr[i].lowTemp < lowestTemp){
 			lowestTemp = arr[i].lowTemp;
 		}
